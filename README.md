@@ -163,12 +163,12 @@ Processes sample cases from `predict/BraTS2021_*/` and generates PNG overlay com
 | Method | BraTS 2021 | | | | BraTS 2020 | | | | BraTS 2023 | | | |
 |--------|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | | **WT** | **TC** | **ET** | **Mean** | **WT** | **TC** | **ET** | **Mean** | **WT** | **TC** | **ET** | **Mean** |
-| MBANet [33] | 92.18 | 88.33 | 85.47 | 88.66 | 91.66 | 87.61 | 84.59 | 87.95 | 91.24 | 86.78 | 83.83 | 87.28 |
-| 3DUV-NetR+ [3] | 91.94 | 88.02 | 85.26 | 88.41 | 91.45 | 87.39 | 84.44 | 87.76 | 91.03 | 86.47 | 83.62 | 87.04 |
-| VcaNet [51] | 92.36 | 88.61 | 85.75 | 88.91 | 91.84 | 87.98 | 84.93 | 88.25 | 91.42 | 87.06 | 84.11 | 87.53 |
-| SegResNet [58] | 92.75 | 89.19 | 86.04 | 89.33 | 92.23 | 88.47 | 85.22 | 88.64 | 91.81 | 87.55 | 84.46 | 87.94 |
-| nnU-Net [53] | 92.54 | 89.58 | 87.33 | 89.82 | 92.02 | 88.86 | 86.51 | 89.13 | 91.69 | 87.88 | 85.78 | 88.45 |
-| Swin UNETR [54] | 92.83 | 90.27 | 88.38 | 90.49 | 92.39 | 89.45 | 87.29 | 89.71 | 92.08 | 88.53 | 86.52 | 89.04 |
+| MBANet  | 92.18 | 88.33 | 85.47 | 88.66 | 91.66 | 87.61 | 84.59 | 87.95 | 91.24 | 86.78 | 83.83 | 87.28 |
+| 3DUV-NetR+  | 91.94 | 88.02 | 85.26 | 88.41 | 91.45 | 87.39 | 84.44 | 87.76 | 91.03 | 86.47 | 83.62 | 87.04 |
+| VcaNet  | 92.36 | 88.61 | 85.75 | 88.91 | 91.84 | 87.98 | 84.93 | 88.25 | 91.42 | 87.06 | 84.11 | 87.53 |
+| SegResNet  | 92.75 | 89.19 | 86.04 | 89.33 | 92.23 | 88.47 | 85.22 | 88.64 | 91.81 | 87.55 | 84.46 | 87.94 |
+| nnU-Net  | 92.54 | 89.58 | 87.33 | 89.82 | 92.02 | 88.86 | 86.51 | 89.13 | 91.69 | 87.88 | 85.78 | 88.45 |
+| Swin UNETR  | 92.83 | 90.27 | 88.38 | 90.49 | 92.39 | 89.45 | 87.29 | 89.71 | 92.08 | 88.53 | 86.52 | 89.04 |
 | **KnowNet** | **95.72** | **93.26** | **91.31** | **93.43** | **95.36** | **92.56** | **90.18** | **92.70** | **94.88** | **91.96** | **89.08** | **91.97** |
 
 All results reported as mean over 5 independent runs. All comparisons statistically significant (paired Wilcoxon, Bonferroni correction m=6, p&lt;0.01). **Bold** = best result.
@@ -178,12 +178,12 @@ All results reported as mean over 5 independent runs. All comparisons statistica
 | Method | BraTS 2021 | | | | BraTS 2020 | | | | BraTS 2023 | | | |
 |--------|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | | **WT** | **TC** | **ET** | **Mean** | **WT** | **TC** | **ET** | **Mean** | **WT** | **TC** | **ET** | **Mean** |
-| MBANet [33] | 4.30 | 6.70 | 8.98 | 6.66 | 4.57 | 7.11 | 9.55 | 7.08 | 4.83 | 7.52 | 10.11 | 7.49 |
-| 3DUV-NetR+ [3] | 4.35 | 6.74 | 9.10 | 6.73 | 4.62 | 7.16 | 9.65 | 7.14 | 4.87 | 7.56 | 10.20 | 7.54 |
-| VcaNet [51] | 4.18 | 6.55 | 8.85 | 6.53 | 4.44 | 6.96 | 9.41 | 6.94 | 4.71 | 7.37 | 9.96 | 7.35 |
-| SegResNet [58] | 4.12 | 6.52 | 8.75 | 6.46 | 4.39 | 6.95 | 9.32 | 6.89 | 4.66 | 7.39 | 9.90 | 7.32 |
-| nnU-Net [53] | 3.98 | 6.31 | 8.42 | 6.24 | 4.25 | 6.75 | 9.00 | 6.67 | 4.53 | 7.15 | 9.58 | 7.09 |
-| Swin UNETR [54] | 3.85 | 6.05 | 8.18 | 6.03 | 4.20 | 6.56 | 8.87 | 6.54 | 4.46 | 7.00 | 9.47 | 6.98 |
+| MBANet  | 4.30 | 6.70 | 8.98 | 6.66 | 4.57 | 7.11 | 9.55 | 7.08 | 4.83 | 7.52 | 10.11 | 7.49 |
+| 3DUV-NetR+ | 4.35 | 6.74 | 9.10 | 6.73 | 4.62 | 7.16 | 9.65 | 7.14 | 4.87 | 7.56 | 10.20 | 7.54 |
+| VcaNet  | 4.18 | 6.55 | 8.85 | 6.53 | 4.44 | 6.96 | 9.41 | 6.94 | 4.71 | 7.37 | 9.96 | 7.35 |
+| SegResNet  | 4.12 | 6.52 | 8.75 | 6.46 | 4.39 | 6.95 | 9.32 | 6.89 | 4.66 | 7.39 | 9.90 | 7.32 |
+| nnU-Net  | 3.98 | 6.31 | 8.42 | 6.24 | 4.25 | 6.75 | 9.00 | 6.67 | 4.53 | 7.15 | 9.58 | 7.09 |
+| Swin UNETR  | 3.85 | 6.05 | 8.18 | 6.03 | 4.20 | 6.56 | 8.87 | 6.54 | 4.46 | 7.00 | 9.47 | 6.98 |
 | **KnowNet** | **3.38** | **5.28** | **7.18** | **5.28** | **3.66** | **5.72** | **7.78** | **5.72** | **3.92** | **6.12** | **8.32** | **6.12** |
 
 Lower is better. KnowNet achieves the lowest HD95 across all regions and datasets, with the largest improvement in the ET region (boundary-critical area).
@@ -203,21 +203,6 @@ Lower is better. KnowNet achieves the lowest HD95 across all regions and dataset
 
 All three modules contribute positively. PrGate provides the largest single-module gain (+1.49%). The full model achieves +4.16% over baseline.
 
-### Table 4: Model Efficiency
-
-| Method | Params (M) | Inference (ms) | GFLOPs |
-|--------|:----------:|:--------------:|:------:|
-| MBANet [33] | 28.5 | 330 | 318.6 |
-| 3DUV-NetR+ [3] | 33.2 | 420 | 385.3 |
-| VcaNet [51] | 35.1 | 400 | 362.8 |
-| SegResNet | 30.0 | 310 | 326.2 |
-| nnU-Net [53] | 31.2 | 350 | 340.5 |
-| Swin UNETR [54] | 62.1 | 520 | 485.7 |
-| **KnowNet** | **30.4** | **380** | **337.8** |
-
-KnowNet adds only +0.4M parameters (+1.3%) over SegResNet while achieving substantial performance gains, confirming that improvements come from knowledge injection rather than parameter scaling.
-
----
 
 ## Hyperparameters
 
@@ -346,11 +331,10 @@ KnowNet/
 If you use this code or find our work useful, please cite:
 
 ```bibtex
-@article{KnowNet2025,
-  title={KnowNet: Boundary Gating and Pathology-Aware Aggregation for Calibrated Brain Tumor Segmentation},
+@article{KnowNet2026,
+  title={Boundary Gating and Pathology-Aware Aggregation for Calibrated Brain Tumor Segmentation},
   author={},
-  journal={Knowledge-Based Systems},
-  year={2025}
+  year={2026}
 }
 ```
 

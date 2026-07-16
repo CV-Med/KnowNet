@@ -77,9 +77,9 @@ BraTS 2021, 2020, and 2023 — each sample contains four MRI modalities (T1, T1c
 
 | Dataset | Samples (train/val) | Modalities | Source |
 |---------|-------------------|------------|--------|
-| **BraTS 2021** | 1,000 / 251 | T1, T1ce, T2, FLAIR | [Synapse](https://www.synapse.org/Synapse:syn27097444) |
-| **BraTS 2020** | 295 / 74 | T1, T1ce, T2, FLAIR | [MICCAI BraTS](https://www.med.upenn.edu/brats2020/) |
-| **BraTS 2023** | 703 / 176 | T1, T1ce, T2, FLAIR | [BraTS 2023](https://www.synapse.org/Synapse:syn51364943) |
+| **BraTS 2021** | 1,000 / 251 | T1, T1ce, T2, FLAIR | [Kaggle](https://www.kaggle.com/datasets/syedsajid/brats2021) |
+| **BraTS 2020** | 295 / 74 | T1, T1ce, T2, FLAIR | [Kaggle](https://www.kaggle.com/datasets/awsaf49/brats20-dataset-training-validation) |
+| **BraTS 2023** | 703 / 176 | T1, T1ce, T2, FLAIR | [Kaggle](https://www.kaggle.com/datasets/nicozoro56/brats2023) |
 
 ### Data Structure
 

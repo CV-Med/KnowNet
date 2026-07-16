@@ -1,0 +1,58 @@
+# === Configuration for Brain Tumor Segmentation ===
+# Target Journal: Knowledge-Based Systems (KBS)
+# Task: 3D Brain Tumor Segmentation (BraTS2021)
+# Round: 3 Final — Pure Conv3D (SegResNet + PyraGATE)
+
+seed: 42
+deterministic: true
+device: "cuda:0"
+
+data:
+  data_root: "./data/BraTS2021"
+  modalities: ["flair", "t1", "t1ce", "t2"]
+  in_channels: 4
+  num_classes: 4
+  crop_size: [128, 128, 128]
+  train_ratio: 0.8
+  num_workers: 4
+  dataset_name: "BraTS2021"
+
+training:
+  epochs: 200
+  batch_size: 2
+  learning_rate: 0.0005
+  weight_decay: 0.0001
+  scheduler: "poly"
+  scheduler_kwargs:
+    power: 0.9
+  warmup_epochs: 5
+  accum_steps: 4
+  val_every: 10
+  amp: false
+  gradient_clip: 0.5
+  early_stop_patience: 30
+
+model:
+  enc_features: [32, 64, 128, 256, 320]
+  bottleneck_channels: 320
+  dilation_rates: [1, 2, 3]
+  coord_hidden: 16
+
+loss:
+  main_weight: 1.0
+  aux_weights: [0.4, 0.3, 0.2, 0.1]
+
+iteration:
+  round: 3
+  max_rounds: 5
+
+ablation:
+  enabled: true
+  innovation_names: ["BoundGATE", "PyraGATE", "EKD_CALIB"]
+  finetune_epochs: 30
+
+sota:
+  dice: 0.885
+  dice_WT: 0.927
+  dice_TC: 0.891
+  dice_ET: 0.860

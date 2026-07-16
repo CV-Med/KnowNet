@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+
+# macOS
+.DS_Store
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Training artifacts
+weights/best_checkpoint.pth
+weights/latest_checkpoint.pth
+*.pth
+
+# Logs & experiment output
+logs/
+predict/results/
+experiment_summary.json
+
+# Large dataset (downloaded separately, not committed)
+data/BraTS2021/
+
+# Git LFS will track .nii.gz in predict/

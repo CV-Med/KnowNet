@@ -1,0 +1,6 @@
+download link: weights-KnowNet.zip
+https://pan.baidu.com/s/184GDtnWEk5_2kYMlgPsDEw?pwd=ad5b code: ad5b
+
+Unzip weights-KnowNet.zip into this directory:
+  weights/best_checkpoint.pth             (best validation Dice)
+  weights/best_checkpoint_calibrated.pth  (+ fitted EvCal temperature tau*)

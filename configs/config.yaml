@@ -1,0 +1,99 @@
+# === KnowNet configuration ===
+# Task: 3D brain tumor segmentation on BraTS 2021 / 2020 / 2023
+# Backbone: SegResNet (5-stage 3D ResBlock encoder-decoder), pure Conv3D
+# Modules: BGate (boundary gating), PrGate (feature-conditioned multiscale
+#          gating), EvCal (fitted temperature-scaling evidential calibration)
+
+seed: 42
+deterministic: true
+# "auto" resolves to cuda -> mps -> cpu at runtime (see utils/device.py).
+device: "auto"
+
+data:
+  data_root: "./data/BraTS2021"
+  modalities: ["flair", "t1", "t1ce", "t2"]
+  in_channels: 4
+  num_classes: 4
+  crop_size: [128, 128, 128]
+  # Case-level 8:1:1 train/val/test split.  The validation split
+  # selects the checkpoint and fits the calibration temperature; the test split
+  # is held out for the final assessment.
+  split_ratio: [0.8, 0.1, 0.1]
+  split_seed: 42
+  # Training crops are centred on a randomly chosen tumour voxel.
+  tumor_centered_crop: true
+  num_workers: 4
+  dataset_name: "BraTS2021"
+
+training:
+  epochs: 200
+  batch_size: 2
+  learning_rate: 0.0005
+  weight_decay: 0.0001
+  scheduler: "poly"
+  scheduler_kwargs:
+    power: 0.9
+  warmup_epochs: 5
+  accum_steps: 4
+  val_every: 10
+  amp: false
+  gradient_clip: 0.5
+  early_stop_patience: 30
+
+model:
+  enc_features: [32, 64, 128, 256, 320]
+  bottleneck_channels: 320
+  dilation_rates: [1, 2, 3]
+  # Hidden width H_mlp of the coordinate branch.
+  coord_hidden: 16
+  # PrGate gating design:
+  # uniform | global | coord | feature | coord_feature
+  gating_variant: "coord_feature"
+
+loss:
+  main_weight: 1.0
+  aux_weights: [0.4, 0.3, 0.2, 0.1]
+  # "uncertainty" (detached w_U) | "constant" | "none"
+  aux_weight_mode: "uncertainty"
+  constant_aux_weight: 0.75
+
+evaluation:
+  # Whole-volume sliding-window inference.
+  sliding_window: true
+  window_size: [128, 128, 128]
+  stride: [64, 64, 64]
+  # Also use sliding-window inference for the validation pass.  Disable for a
+  # faster (centre-crop) training loop when GPU time is limited.
+  validation_sliding_window: true
+  # HD95 requires a CPU distance transform per case; disable to speed up smoke runs.
+  compute_hd95: true
+
+calibration:
+  # EvCal temperature is fitted after training on the validation split by
+  # minimising the Brier score over a logarithmic grid.
+  tau_min: 0.05
+  tau_max: 5.00
+  tau_grid_points: 500
+  # Reference value for BraTS 2021 (informational only; the
+  # fitted value lives in the EvCal buffer of the checkpoint).
+  tau_star_reported: 0.82
+  # Tumour voxels sampled from the validation split for the Brier fit.
+  max_voxels: 100000
+  max_voxels_per_case: 2048
+
+iteration:
+  round: 1
+
+ablation:
+  enabled: true
+  innovation_names: ["BGate", "PrGate", "EvCal"]
+  finetune_epochs: 30
+  gating_variants: ["uniform", "global", "coord", "feature", "coord_feature"]
+
+# Strongest baseline on BraTS 2021 (Swin UNETR), used for the
+# experiment recorder's SOTA comparison.
+sota:
+  dice: 0.9070
+  dice_WT: 0.9311
+  dice_TC: 0.9039
+  dice_ET: 0.8860

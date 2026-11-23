@@ -430,23 +430,6 @@ KnowNet/
 └── weights/                   # Checkpoints (auto-created, gitignored)
 ```
 
-### Key files
-
-| File | Responsibility | Key functions / classes |
-|------|---------------|-------------------------|
-| `run.py` | CLI entry point and mode dispatch | `run_train`, `run_test`, `run_ablation`, `run_gating`, `run_calibrate`, `run_smoke` |
-| `models/innovation_module.py` | Knowledge modules | `BoundGATE`, `PrGate`, `EvCal` |
-| `models/__init__.py` | Model assembly | `BrainTumorSegModel`, `build_model(config, disabled_modules=...)` |
-| `engines/trainer.py` | Training engine | `Trainer.fit`, `Trainer.validate` |
-| `engines/evaluator.py` | Evaluation | `Evaluator.evaluate`, `Evaluator.summary` |
-| `losses/loss.py` | Losses | `DiceLoss`, `DeepSupervisionLoss` |
-| `utils/temperature.py` | Post-hoc calibration | `collect_temperature_data`, `calibrate_model` |
-| `utils/calibration.py` | Calibration metrics | `fit_temperature_brier`, `expected_calibration_error`, `adaptive_calibration_error`, `error_detection_auroc` |
-| `predict/predict.py` | Inference and visualization | `predict_case`, `draw_overlay`, `draw_uncertainty` |
-
----
-
-
 ---
 
 ## License

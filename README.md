@@ -446,44 +446,6 @@ KnowNet/
 
 ---
 
-## Pretrained weights
-
-The calibrated KnowNet checkpoint (`weights-KnowNet.zip`) is distributed separately:
-
-> **Download:** `https://pan.baidu.com/s/184GDtnWEk5_2kYMlgPsDEw?pwd=ad5b` (code: `ad5b`)
-
-Unzip it into `weights/`:
-
-```
-weights/
-├── best_checkpoint.pth             # best validation Dice
-└── best_checkpoint_calibrated.pth  # + fitted EvCal temperature τ*
-```
-
-Without a checkpoint, `test`/`eval`/`ablation` still run (a warning is printed and the
-model uses random weights), which is useful for pipeline checks.
-
----
-
-## Limitations and missing resources
-
-- The BraTS NIfTI volumes are **not** distributed with this repository; download
-  them separately following `data/README.md`.
-- The sample cases under `predict/` are stored with Git LFS. Without `git lfs pull`
-  they are pointer files and are skipped with a warning.
-- Pretrained weights are distributed separately (see above). Without a checkpoint,
-  `test` / `eval` / `predict` fall back to random weights and only validate the
-  pipeline, not the reported accuracy.
-- Full-resolution training and whole-volume inference need a CUDA GPU with enough
-  memory. On CPU/MPS, reduce `evaluation.window_size` or pass
-  `--no-sliding-window`; `smoke` mode and the test suite use small synthetic
-  volumes instead.
-- The code is developed and evaluated for BraTS-style four-modality, four-label
-  data and has not been validated on other acquisition protocols.
-- The calibration temperature is fitted on a validation split and must be
-  re-fitted before deploying the model on a different cohort.
-- Only per-case metrics are written to JSON; downstream statistical testing is
-  left to the user.
 
 ---
 
